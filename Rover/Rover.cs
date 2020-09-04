@@ -1,9 +1,9 @@
-﻿namespace Rover
+﻿namespace MarsRoverProblem
 {
-    using Rover.Enums;
+    using Enums;
     using System;
 
-    public class MarsRover
+    public class Rover
     {
         private Coordinates _roverCoordinates;
         private readonly string _directiveArray;
@@ -12,7 +12,7 @@
         public int Y => _roverCoordinates.Y;
         public DirectionsEnum RoverDirection { get; private set; }
 
-        public MarsRover(int xCoordinate, int yCoordinate, char startDirection, string directiveArray)
+        public Rover(int xCoordinate, int yCoordinate, char startDirection, string directiveArray)
         {
             _roverCoordinates = new Coordinates(xCoordinate, yCoordinate);
             RoverDirection = GetDirection(startDirection);

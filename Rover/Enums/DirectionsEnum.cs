@@ -1,4 +1,4 @@
-﻿namespace Rover.Enums
+﻿namespace MarsRoverProblem.Enums
 {
     using System.Runtime.Serialization;
 

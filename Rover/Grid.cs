@@ -1,8 +1,7 @@
-﻿namespace Rover
+﻿namespace MarsRoverProblem
 {
     using System;
     using System.Collections.Generic;
-    using System.Text;
 
     /// <summary>
     /// Rover'ın gezebileceği grid class ı
@@ -11,18 +10,18 @@
     {
         private Coordinates _maxCoordinates;
         private AllRoverCoordinates _allRoverCoordinates;
-        private readonly List<MarsRover> _allRoversOnGrid;
+        private readonly List<Rover> _allRoversOnGrid;
 
         
         public Grid(Coordinates _maxCor)
         {
             //Maksimum koordinatlar set ediliyor.
             _maxCoordinates = _maxCor;
-            _allRoversOnGrid = new List<MarsRover>();
+            _allRoversOnGrid = new List<Rover>();
         }
 
         //Roverların hareket için listeye eklenmesini sağlayan method
-        public void AddToRoverCollection(MarsRover _roverObj)
+        public void AddToRoverCollection(Rover _roverObj)
         {
             _allRoversOnGrid.Add(_roverObj);
         }
@@ -30,7 +29,7 @@
         //Grid içinde roverların hareket işlemlerinin yapıldığı method
         public void MoveAllRoversOnGrid()
         {
-            foreach (MarsRover tempRov in _allRoversOnGrid)
+            foreach (Rover tempRov in _allRoversOnGrid)
             {
                 tempRov.ProcessDirectiveArray();
                 DoIntegrityCheck(tempRov);
@@ -39,7 +38,7 @@
         }
 
         //Rover ın grid içinde kalmasını kontrol ediyoruz.
-        private void DoIntegrityCheck(MarsRover _tempRov)
+        private void DoIntegrityCheck(Rover _tempRov)
         {
             if ((_tempRov.X > _maxCoordinates.X) || (_tempRov.Y > _maxCoordinates.Y))
             {
@@ -48,7 +47,7 @@
         }
 
         //Rover ın gideceği noktada başka rover olup olmadığını kontrol ediyoruz.
-        private void CanRoverMoveCheck(MarsRover _tempRov)
+        private void CanRoverMoveCheck(Rover _tempRov)
         {
             var currentRoverCoordinates = $"{_tempRov.X} {_tempRov.Y} {_tempRov.RoverDirection}";
 

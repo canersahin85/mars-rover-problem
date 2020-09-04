@@ -1,7 +1,7 @@
-﻿namespace Rover.Test
+﻿namespace MarsRoverProblem.Test
 {
+    using MarsRoverProblem;
     using Xunit;
-    using Rover;
 
     public class RoverTest
     {
@@ -14,7 +14,7 @@
         [Fact]
         void Scenario_1_2_N_LMLMLMLMM()
         {
-            var model = new MarsRover(1, 2, 'N', "LMLMLMLMM");
+            var model = new Rover(1, 2, 'N', "LMLMLMLMM");
 
             //İstenilen maksimum hücreli grid i oluşturuyoruz.
             Grid _testGrid = new Grid(new Coordinates(5, 5));
@@ -43,7 +43,7 @@
         void Scenario_3_3_E_MMRMMRMRRM()
         {
             //test senaryosunda istenilen değerleri giriyoruz.
-            var model = new MarsRover(3, 3, 'E', "MMRMMRMRRM");
+            var model = new Rover(3, 3, 'E', "MMRMMRMRRM");
 
             //İstenilen maksimum hücreli grid i oluşturuyoruz.
             Grid _testGrid = new Grid(new Coordinates(5, 5));
@@ -77,8 +77,8 @@
         void Scenario_Two_Rover_Move()
         {
             //test senaryosunda istenilen değerleri giriyoruz.
-            var rover1 = new MarsRover(3, 3, 'E', "MMRMMRMRRM");
-            var rover2 = new MarsRover(1, 2, 'N', "LMLMLMLMM");
+            var rover1 = new Rover(3, 3, 'E', "MMRMMRMRRM");
+            var rover2 = new Rover(1, 2, 'N', "LMLMLMLMM");
 
             //İstenilen maksimum hücreli grid i oluşturuyoruz.
             Grid _testGrid = new Grid(new Coordinates(5, 5));

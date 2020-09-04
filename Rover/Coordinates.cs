@@ -1,6 +1,6 @@
-﻿namespace Rover
+﻿namespace MarsRoverProblem
 {
-    using Rover.Enums;
+    using Enums;
 
     /// <summary>
     /// Rover ın koordinatlarını tutan struct
