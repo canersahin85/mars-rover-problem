@@ -1,6 +1,5 @@
 ﻿namespace MarsRoverProblem.Test
 {
-    using MarsRoverProblem;
     using Xunit;
 
     public class RoverTest

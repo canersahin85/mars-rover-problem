@@ -2,4 +2,8 @@
 # This .gitignore file was automatically created by Microsoft(R) Visual Studio.
 ################################################################################
 
-/.vs/MarsRoverProblem/DesignTimeBuild/.dtbcache.v2
+/.vs/MarsRoverProblem
+/MarsRoverProblem/bin/Debug/netcoreapp3.1
+/MarsRoverProblem/obj
+/MarsRoverProblem.Test/obj
+/MarsRoverProblem.Test/bin/Debug/netcoreapp3.1
