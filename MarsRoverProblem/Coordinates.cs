@@ -3,7 +3,7 @@
     using Enums;
 
     /// <summary>
-    /// Rover ın koordinatlarını tutan struct
+    /// The struct that holds the coordinates of Rover
     /// </summary>
     public struct Coordinates
     {

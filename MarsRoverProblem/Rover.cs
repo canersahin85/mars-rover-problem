@@ -7,6 +7,7 @@
     {
         private Coordinates _roverCoordinates;
         private readonly string _directiveArray;
+        private AllRoverCoordinates _allRoverCoordinates;
 
         public int X => _roverCoordinates.X;
         public int Y => _roverCoordinates.Y;
@@ -36,7 +37,15 @@
             foreach (var instruction in _directiveArray)
             {
                 Process(instruction);
+                if (_allRoverCoordinates.RoverCoordinatesList.Count > 0)
+                {
+                    //I check if there is another rover at the point where Rover is going.
+                    CanRoverMoveCheck();
+                }
             }
+            //Rover's last coordinate add to the list.
+            var currentRoverCoordinates = $"{_roverCoordinates.X} {_roverCoordinates.Y} {RoverDirection}";
+            _allRoverCoordinates.AddCoordinates(currentRoverCoordinates);
         }
 
         private void Process(char directive)
@@ -69,6 +78,22 @@
                 if (_roverDirectionInt == 3)
                     _roverDirectionInt = -1;
                 RoverDirection = (DirectionsEnum)(_roverDirectionInt + 1);
+            }
+        }
+
+        private void CanRoverMoveCheck()
+        {
+            var currentRoverCoordinates = $"{_roverCoordinates.X} {_roverCoordinates.Y} {RoverDirection}";
+
+            if (_allRoverCoordinates.RoverCoordinatesList != null)
+            {
+                foreach (var roverCoordinates in _allRoverCoordinates.RoverCoordinatesList)
+                {
+                    if (roverCoordinates == currentRoverCoordinates)
+                    {
+                        throw new Exception("There's another Rover in the same place.");
+                    }
+                }
             }
         }
     }

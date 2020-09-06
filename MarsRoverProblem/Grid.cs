@@ -4,65 +4,44 @@
     using System.Collections.Generic;
 
     /// <summary>
-    /// Rover'ın gezebileceği grid class ı
+    /// The grid class that Rover can move
     /// </summary>
     public class Grid
     {
         private Coordinates _maxCoordinates;
-        private AllRoverCoordinates _allRoverCoordinates;
         private readonly List<Rover> _allRoversOnGrid;
 
         
         public Grid(Coordinates _maxCor)
         {
-            //Maksimum koordinatlar set ediliyor.
+            //Maximum coordinates
             _maxCoordinates = _maxCor;
             _allRoversOnGrid = new List<Rover>();
         }
 
-        //Roverların hareket için listeye eklenmesini sağlayan method
+        //Method for adding Rovers to the list for movement
         public void AddToRoverCollection(Rover _roverObj)
         {
             _allRoversOnGrid.Add(_roverObj);
         }
 
-        //Grid içinde roverların hareket işlemlerinin yapıldığı method
+        //The method of moving rovers on the grid
         public void MoveAllRoversOnGrid()
         {
             foreach (Rover tempRov in _allRoversOnGrid)
             {
                 tempRov.ProcessDirectiveArray();
                 DoIntegrityCheck(tempRov);
-                CanRoverMoveCheck(tempRov);
             }
         }
 
-        //Rover ın grid içinde kalmasını kontrol ediyoruz.
+        //Checking for Rover to stay in grid
         private void DoIntegrityCheck(Rover _tempRov)
         {
             if ((_tempRov.X > _maxCoordinates.X) || (_tempRov.Y > _maxCoordinates.Y))
             {
-                throw new Exception("Rover Grid dışına çıktı. Tekrar dene.");
+                throw new Exception("Rover stepped off the Grid.");
             }
-        }
-
-        //Rover ın gideceği noktada başka rover olup olmadığını kontrol ediyoruz.
-        private void CanRoverMoveCheck(Rover _tempRov)
-        {
-            var currentRoverCoordinates = $"{_tempRov.X} {_tempRov.Y} {_tempRov.RoverDirection}";
-
-            if (_allRoverCoordinates.RoverCoordinatesList != null)
-            {
-                foreach (var roverCoordinates in _allRoverCoordinates.RoverCoordinatesList)
-                {
-                    if (roverCoordinates == currentRoverCoordinates)
-                    {
-                        throw new Exception("Aynı noktada başka bir Rover var.");
-                    }
-                }
-            }
-
-            _allRoverCoordinates.AddCoordinates(currentRoverCoordinates);
         }
     }
 }

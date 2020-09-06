@@ -3,7 +3,7 @@
     using System.Collections.Generic;
 
     /// <summary>
-    /// Tüm Roverların koordinatlarını tutan struct
+    /// The struct that holds the coordinates of Rovers
     /// </summary>
     public struct AllRoverCoordinates
     {
